@@ -2,19 +2,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Libertinus Serif', serif;
+}
+
+:root {
+    --yb-yellow: #F2D98C;
+    --yb-brown: #3E2C23;
+    --yb-white: #F8F5F0;
+    --yb-green: #7A8450;
 }
 
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--yb-white);
 }
 
-h1 {
-    font-family: 'Allison', cursive;
-}
 
-.first-section {
+
+.header-section {
     background-image: url('../../assets/img/background.jpg');
     /* background-image: url('../../assets/img/second-background.jpeg'); */
     background-size: cover;
@@ -23,4 +29,72 @@ h1 {
     background-attachment: fixed;
     height: 100vh;
     width: 100%;
+
+    header {
+        position: fixed;
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        background-color: var(--yb-brown);
+        padding: 20px;
+        border-radius: 0 0 50% 50%;
+        box-shadow: 0 0 10px 0 var(--yb-brown);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .logo-header {
+            fill: var(--yb-yellow);
+        }
+    }
+
+}
+
+main {
+    background-color: var(--yb-white);
+
+    .second-section {
+        background-image: url('../../assets/img/bg1.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .logo-silhueta {
+            fill: var(--yb-brown);
+        }
+    
+        h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--yb-green);
+            text-align: center;
+            margin-bottom: 20px;    
+        }
+
+        hr {
+            border: 1px solid var(--yb-brown);
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--yb-brown);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--yb-brown);
+    }
+
+    .third-section {
+    }
 }
