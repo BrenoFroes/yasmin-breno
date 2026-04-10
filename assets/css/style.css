@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Libertinus Serif', serif;
+    font-family: 'Lateef', serif;
 }
 
 :root {
@@ -19,41 +19,63 @@ body {
 }
 
 
+.header-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    filter: drop-shadow(0 4px 6px rgba(62, 44, 35, 0.5));
+}
+
+header {
+    width: 100%;
+    min-height: 80px;
+    height: auto;
+    background-color: var(--yb-brown);
+    padding: 10px 20px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    .logo-header path {
+        fill: var(--yb-yellow);
+    }
+}
+
+.content {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 .header-section {
-    background-image: url('../../assets/img/background.jpg');
-    /* background-image: url('../../assets/img/second-background.jpeg'); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
+    padding-top: 0px;
+    height: auto;
     width: 100%;
-
-    header {
-        position: fixed;
-        width: 100%;
-        min-height: 100px;
-        height: auto;
-        background-color: var(--yb-brown);
-        padding: 20px;
-        border-radius: 0 0 50% 50%;
-        box-shadow: 0 0 10px 0 var(--yb-brown);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .logo-header {
-            fill: var(--yb-yellow);
-        }
-    }
-
 }
 
 main {
     background-color: var(--yb-white);
 
+    h1 {
+        font-family: 'Tangerine', cursive;
+        font-size: 2.3rem;
+        line-height: 1;
+    }
+    
+    h2 {
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--yb-brown);
+    }
+    
+    .salao-aquarela {
+        width: 100%;
+        min-height: 85vh;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
     .second-section {
-        background-image: url('../../assets/img/bg1.png');
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
@@ -61,23 +83,23 @@ main {
         align-items: center;
         flex-direction: column;
 
-        .logo-silhueta {
-            fill: var(--yb-brown);
-        }
     
         h1 {
-            font-family: 'Tangerine', cursive;
-            font-size: 4rem;
-            font-weight: 400;
-            color: var(--yb-green);
             text-align: center;
-            margin-bottom: 20px;    
+            margin-bottom: 0;
+            background: var(--yb-brown) linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%) 0 0 no-repeat;
+            background-size: 200px;
+            color: rgba(146, 125, 20, 0.3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 3s infinite;
+            text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
         }
 
-        hr {
-            border: 1px solid var(--yb-brown);
-            width: 100%;
-            margin-bottom: 20px;
+        h2 {
+            font-size: 1rem;
+            margin: 0 auto 20px;
+            text-align: center;
         }
 
         p {
@@ -89,12 +111,21 @@ main {
         }
     }
 
-    h2 {
-        font-size: 2rem;
-        font-weight: 400;
-        color: var(--yb-brown);
-    }
-
     .third-section {
+    }
+}
+
+@keyframes shine {
+    0%, 10% {
+        background-position: -1000px;
+    }
+    20% {
+        background-position: top left;
+    }
+    90% {
+        background-position: top right;
+    }
+    100% {
+        background-position: 1000px;
     }
 }
