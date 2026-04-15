@@ -2,14 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lateef', serif;
+    font-family: 'DM Sans', serif;
 }
 
 :root {
     --yb-yellow: #F2D98C;
     --yb-brown: #3E2C23;
     --yb-white: #F8F5F0;
-    --yb-green: #7A8450;
+    --yb-green: #8A994F;
 }
 
 body {
@@ -36,7 +36,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    .logo-header path {
+    .logo-header {
+        width: 84px;
+        height: auto;
+        filter: drop-shadow(0 2px 4px var(--yb-yellow));
+    }
+    
+    path {
         fill: var(--yb-yellow);
     }
 }
@@ -64,7 +70,7 @@ main {
     
     h2 {
         font-size: 2rem;
-        font-weight: 400;
+        font-weight: 600;
         color: var(--yb-brown);
     }
     
@@ -83,16 +89,16 @@ main {
         align-items: center;
         flex-direction: column;
 
-    
         h1 {
             text-align: center;
             margin-bottom: 0;
             background: var(--yb-brown) linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%) 0 0 no-repeat;
             background-size: 200px;
-            color: rgba(146, 125, 20, 0.3);
             -webkit-background-clip: text;
             background-clip: text;
             animation: shine 3s infinite;
+            color: rgba(146, 125, 20, 0.3);
+            font-weight: 600;
             text-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
         }
 
@@ -100,6 +106,7 @@ main {
             font-size: 1rem;
             margin: 0 auto 20px;
             text-align: center;
+            color: var(--yb-brown);
         }
 
         p {
@@ -109,9 +116,68 @@ main {
             text-align: center;
             margin-bottom: 20px;
         }
+
+        .relogio-img {
+            fill: var(--yb-white);
+            path {
+                fill: var(--yb-white);
+            }
+        }
     }
 
     .third-section {
+    }
+
+    .fourth-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        h2 {
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border-radius: 2px;
+            background-color: var(--yb-brown);
+            padding: 0 5px;
+            width: fit-content;
+            margin: 0 auto;
+            color: var(--yb-white);
+        }
+
+        .relogio-img {
+            path {
+                fill: var(--yb-brown);
+            }
+        }
+        .period {
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 12px;
+
+            .linha-img {
+                margin: 0;
+                width: 100%;
+                height: auto;
+            }
+            h3 {
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--yb-green);
+            }
+            p {
+                font-size: 0.8rem;
+                line-height: 0.78rem;
+                color: var(--yb-brown);
+                margin-bottom: 20px;
+            }	
+        }	
     }
 }
 
