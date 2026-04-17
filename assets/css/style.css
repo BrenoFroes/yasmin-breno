@@ -161,6 +161,47 @@ main {
             justify-content: center;
             gap: 12px;
 
+            .period-img-wrapper {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                border-radius: 4px;
+            }
+
+            .period-img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 4px;
+            }
+
+            .period-img-overlay {
+                position: absolute;
+                inset: 0;
+                background-color: rgba(62, 44, 35, 0);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: background-color 0.3s ease;
+
+                span {
+                    font-family: 'Tangerine', cursive;
+                    font-size: 1.5em;
+                    font-weight: 700;
+                    color: var(--yb-yellow);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+            }
+
+            .period-img-wrapper:hover .period-img-overlay {
+                background-color: rgba(62, 44, 35, 0.7);
+            }
+
+            .period-img-wrapper:hover .period-img-overlay span {
+                opacity: 1;
+            }
+
             .linha-img {
                 margin: 0;
                 width: 100%;
