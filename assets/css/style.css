@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'DM Sans', serif;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 :root {
@@ -133,6 +133,8 @@ main {
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        background-color: var(--yb-brown);
+        padding: 20px 0;
         h2 {
             font-size: 1.2rem;
             display: flex;
@@ -210,9 +212,11 @@ main {
             align-items: flex-start;
             justify-content: flex-start;
             gap: 12px;
-            background-color: #fff;
+            /* background: url('../img/paper.jpg') no-repeat center center; */
+            background-color: var(--yb-white);
+            background-size: cover;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(62, 44, 35, 0.1);
+            box-shadow: 0 2px 8px var(--yb-yellow);
             overflow-y: auto;
             flex-shrink: 0;
 
