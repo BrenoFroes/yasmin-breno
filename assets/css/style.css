@@ -183,6 +183,11 @@ main {
         justify-content: center;
         background-color: var(--yb-green);
         padding: 20px 0;
+
+        .line-img {
+            filter: brightness(0) invert(1);
+            max-width: 100px;
+        }
         h2 {
             font-size: 1.2rem;
             display: flex;
@@ -193,12 +198,6 @@ main {
             border-radius: 2px;
             margin: 0 auto;
             color: var(--yb-white);
-        }
-
-        .relogio-img {
-            path {
-                fill: var(--yb-brown);
-            }
         }
         .carousel-container {
             position: relative;
@@ -331,6 +330,122 @@ main {
             }
 
         }	
+    }
+
+
+    .fifth-section {
+        padding: 40px 16px;
+        background-color: var(--yb-brown);
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--yb-yellow);
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .line-img {
+            filter: brightness(2);
+            max-width: 100px;
+        }
+
+        .rsvp-subtitle {
+            font-size: 1rem;
+            color: var(--yb-white);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        form {
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--yb-yellow);
+        }
+
+        input, select, textarea {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            padding: 10px 12px;
+            border: 1px solid rgba(242, 217, 140, 0.3);
+            border-radius: 6px;
+            background-color: rgba(248, 245, 240, 0.08);
+            color: var(--yb-white);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(248, 245, 240, 0.4);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--yb-yellow);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        select option {
+            background-color: var(--yb-brown);
+            color: var(--yb-white);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .rsvp-btn {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--yb-yellow);
+            color: var(--yb-brown);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .rsvp-btn:hover {
+            opacity: 0.85;
+        }
+
+        .rsvp-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .rsvp-feedback {
+            text-align: center;
+            font-size: 0.95rem;
+            min-height: 1.2em;
+        }
+
+        .rsvp-feedback.success {
+            color: var(--yb-green);
+        }
+
+        .rsvp-feedback.error {
+            color: #e05555;
+        }
     }
 }
 

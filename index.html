@@ -26,7 +26,7 @@
             <!-- <img src="assets/img/logo-silhueta-yb.svg" width="200" height="200" class="logo-silhueta" alt="Silhueta"> -->
             <div >
                 <h1>Yasmin Amaral & Breno Fróes</h1>
-                <img src="assets/img/line.png" width="300" height="200" class="line-img" alt="Linha">
+                <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
                 <h2>
                     21 de novembro de 2026
             </h2>
@@ -76,7 +76,7 @@
             <div class="container mx-auto">
                 <h2>Nossa história</h2>
                 
-                <img src="assets/img/line.png" width="300" height="200" class="line-img" alt="Linha">
+                <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
                 <div class="carousel-container">
                     <button class="carousel-arrow carousel-prev" aria-label="Anterior">&#10094;</button>
                     <div class="carousel-inner">
@@ -141,7 +141,40 @@
                 </div>
             </div>
         </section>
+        <section class="w-full fifth-section">
+            <div class="container mx-auto">
+                <h2>Confirme sua presença</h2>
+                <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
+                <p class="rsvp-subtitle">Será uma alegria imensa contar com você neste dia tão especial.</p>
+                <form id="rsvp-form">
+                    <div class="form-group">
+                        <label for="name">Nome completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(21) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Quantidade de acompanhantes</label>
+                        <select id="guests" name="guests">
+                            <option value="0">Irei sozinho(a)</option>
+                            <option value="1">1 acompanhante</option>
+                            <option value="2">2 acompanhantes</option>
+                            <option value="3">3 acompanhantes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Caso deseje, deixe uma mensagem para os noivos</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Deixe uma mensagem carinhosa..."></textarea>
+                    </div>
+                    <button type="submit" class="rsvp-btn">Confirmar presença</button>
+                    <p id="rsvp-feedback" class="rsvp-feedback"></p>
+                </form>
+            </div>
+        </section>
     </main>
     <script src="assets/js/carousel.js"></script>
+    <script type="module" src="assets/js/rsvp.js"></script>
 </body>
 </html>
