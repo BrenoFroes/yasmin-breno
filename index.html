@@ -33,7 +33,7 @@
             </div>
         </section>
         <section class="w-full third-section">
-            <div class="container mx-auto">
+            <div class="container mx-auto content">
                 <p class="verse">"O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha.
                     Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor.
                     O amor não se alegra com a injustiça, mas se alegra com a verdade.
@@ -51,7 +51,7 @@
                 </div>
                     <div class="invitation">
                         <p class="invitation-text">
-                            Convidam com imensa felicidade para a celebração da união matrimonial de Yasmin Amaral & Breno Fróes.<br>
+                            Convidam com imensa felicidade para a celebração da união matrimonial de <strong>Yasmin Amaral & Breno Fróes</strong>.<br>
                             Será uma honra contar com vossa presença para celebrar este dia sob a bênção do Senhor. Estendemos este convite com especial carinho para que compartilhe este momento conosco.<br>
                         </p>
                         <p class="invitation-info">
@@ -73,7 +73,7 @@
             </div>
         </section>
         <section class="w-full fourth-section">
-            <div class="container mx-auto">
+            <div class="container mx-auto content">
                 <h2>Nossa história</h2>
                 
                 <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
@@ -142,35 +142,53 @@
             </div>
         </section>
         <section class="w-full fifth-section">
-            <div class="container mx-auto">
+            <div class="container mx-auto content">
                 <h2>Confirme sua presença</h2>
                 <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
                 <p class="rsvp-subtitle">Será uma alegria imensa contar com você neste dia tão especial.</p>
                 <form id="rsvp-form">
                     <div class="form-group">
                         <label for="name">Nome completo</label>
-                        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                        <select id="name" name="name" required>
+                            <option value="" disabled selected>Selecione seu nome</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="phone">Telefone</label>
                         <input type="tel" id="phone" name="phone" required placeholder="(21) 99999-9999">
                     </div>
                     <div class="form-group">
-                        <label for="guests">Quantidade de acompanhantes</label>
-                        <select id="guests" name="guests">
-                            <option value="0">Irei sozinho(a)</option>
-                            <option value="1">1 acompanhante</option>
-                            <option value="2">2 acompanhantes</option>
-                            <option value="3">3 acompanhantes</option>
-                        </select>
+                        <label for="guests">Acompanhantes</label>
+                        <div id="guests-container" class="guests-checkboxes"></div>
                     </div>
                     <div class="form-group">
-                        <label for="message">Caso deseje, deixe uma mensagem para os noivos</label>
+                        <label for="message">Caso deseje, deixe uma mensagem de carinho para os noivos</label>
                         <textarea id="message" name="message" rows="3" placeholder="Deixe uma mensagem carinhosa..."></textarea>
                     </div>
                     <button type="submit" class="rsvp-btn">Confirmar presença</button>
                     <p id="rsvp-feedback" class="rsvp-feedback"></p>
                 </form>
+            </div>
+        </section>
+        <section class="w-full sixth-section">
+            <div class="container mx-auto content">
+                <h2>Lista de Presentes</h2>
+                <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
+                <p class="gift-text">
+                    Aproveitar esse momento conosco é nosso maior presente, mas caso se sinta a vontade de nos presentear, preparamos uma lista com muito carinho.
+                </p>
+                <a href="https://www.amazon.com.br/hz/wishlist/ls/2WLSYZ2ZCT809?ref_=list_d_wl_lfu_nav_2" target="_blank" rel="noopener noreferrer" class="gift-btn">
+                    Ver lista na Amazon
+                </a>
+            </div>
+        </section>
+        <section class="w-full seventh-section">
+            <div class="container mx-auto content">
+                <p class="made-text">
+                    Feito com carinho pelo noivo <span class="heart">♥</span> <br>
+                    Caso encontre algum problema, por favor, entre em contato com ele. <br>
+                    WhatsApp: <a href="https://wa.me/5521986050745?text=Oi%20Breno.%20Encontrei%20um%20problema%20no%20site%20do%20seu%20casamento.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">(21) 98605-0745</a>
+                </p>
             </div>
         </section>
     </main>

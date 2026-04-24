@@ -16,6 +16,35 @@ const db = getFirestore(app);
 
 const form = document.getElementById('rsvp-form');
 const feedback = document.getElementById('rsvp-feedback');
+const nameSelect = document.getElementById('name');
+const guestsContainer = document.getElementById('guests-container');
+
+async function loadGuests() {
+    try {
+        const res = await fetch('assets/data/guests.json');
+        const guests = await res.json();
+        guests.forEach(name => {
+            const option = document.createElement('option');
+            option.value = name;
+            option.textContent = name;
+            nameSelect.appendChild(option);
+
+            const label = document.createElement('label');
+            label.classList.add('guest-checkbox');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'guests';
+            checkbox.value = name;
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(name));
+            guestsContainer.appendChild(label);
+        });
+    } catch (error) {
+        console.error('Erro ao carregar lista de convidados:', error);
+    }
+}
+
+loadGuests();
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -29,7 +58,7 @@ form.addEventListener('submit', async (e) => {
     const data = {
         name: form.name.value.trim(),
         phone: form.phone.value.trim(),
-        guests: parseInt(form.guests.value),
+        guests: Array.from(guestsContainer.querySelectorAll('input:checked')).map(cb => cb.value),
         message: form.message.value.trim(),
         confirmedAt: serverTimestamp()
     };
