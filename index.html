@@ -145,9 +145,32 @@
 
             </div>
         </section>
-        <div class="fifth-section">
-
-        </div>
+        <section class="fifth-section">
+            <div class="content">
+                <h2>Contagem regressiva</h2>
+                <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
+                <p class="countdown-subtitle">Faltam pouquinhos dias para o nosso "sim"!</p>
+                <div id="countdown" class="countdown" data-target="2026-11-21T16:00:00-03:00" aria-live="polite">
+                    <div class="countdown-item">
+                        <span class="countdown-value" data-unit="days">--</span>
+                        <span class="countdown-label">dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" data-unit="hours">--</span>
+                        <span class="countdown-label">horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" data-unit="minutes">--</span>
+                        <span class="countdown-label">minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" data-unit="seconds">--</span>
+                        <span class="countdown-label">segundos</span>
+                    </div>
+                </div>
+                <p class="countdown-finished" hidden>Hoje é o grande dia!</p>
+            </div>
+        </section>
         <section class="sixth-section">
             <div class="content">
                 <h2>Lista de Presentes</h2>
@@ -202,6 +225,7 @@
     </main>
     <script src="assets/js/carousel.js"></script>
     <script src="assets/js/aquarelle.js"></script>
+    <script src="assets/js/countdown.js"></script>
     <script type="module" src="assets/js/rsvp.js"></script>
 </body>
 </html>
