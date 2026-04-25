@@ -51,13 +51,11 @@ header {
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-@media (min-width: 268px) {
-    .content {
-        max-width: 510px;
+    @media (min-width: 960px) {
+        max-width: 768px;
     }
 }
+
 
 .header-section {
     padding-top: 0px;
@@ -88,10 +86,17 @@ main {
     }
     
     .salao-aquarela {
+        display: block;
         width: 100%;
-        min-height: 85vh;
         height: auto;
-        margin-bottom: 20px;  
+        aspect-ratio: 1 / 1;
+        margin-bottom: 20px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .salao-aquarela.is-ready {
+        opacity: 1;
     }
 
     .second-section {
@@ -189,6 +194,7 @@ main {
         justify-content: center;
         background-color: var(--yb-green);
         padding: 20px 0;
+        width: 100%;
 
         .line-img {
             filter: brightness(0) invert(1);
@@ -211,6 +217,8 @@ main {
             height: 300px;
             overflow: hidden;
             margin-top: 16px;
+            display: flex;
+            justify-content: center;
         }
 
         .carousel-inner {
@@ -218,7 +226,6 @@ main {
             gap: 0px;
             position: absolute;
             top: 0;
-            left: 0;
         }
 
         .carousel-arrow {
@@ -338,8 +345,44 @@ main {
         }	
     }
 
+    .sixth-section {
+        padding: 40px 16px;
+        text-align: center;
 
-    .fifth-section {
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--yb-brown);
+            margin-bottom: 0;
+        }
+
+        .gift-text {
+            font-size: 1rem;
+            color: var(--yb-brown);
+            max-width: 480px;
+            margin: 0 auto 24px;
+            line-height: 1.4;
+        }
+
+        .gift-btn {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 6px;
+            background-color: var(--yb-brown);
+            color: var(--yb-yellow);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .gift-btn:hover {
+            opacity: 0.85;
+        }
+    }
+
+    .seventh-section {
         padding: 40px 16px;
         background-color: var(--yb-brown);
 
@@ -364,7 +407,6 @@ main {
         }
 
         form {
-            max-width: 480px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -481,43 +523,8 @@ main {
         }
     }
 
-    .sixth-section {
-        padding: 40px 16px;
-        text-align: center;
 
-        h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--yb-brown);
-            margin-bottom: 0;
-        }
-
-        .gift-text {
-            font-size: 1rem;
-            color: var(--yb-brown);
-            max-width: 480px;
-            margin: 0 auto 24px;
-            line-height: 1.4;
-        }
-
-        .gift-btn {
-            display: inline-block;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 12px 32px;
-            border-radius: 6px;
-            background-color: var(--yb-brown);
-            color: var(--yb-yellow);
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .gift-btn:hover {
-            opacity: 0.85;
-        }
-    }
-    .seventh-section {
+    .eigth-section {
         padding: 20px 16px;
         text-align: center;
         background-color: var(--yb-brown);

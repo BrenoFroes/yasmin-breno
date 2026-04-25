@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Y&B | Marriage </title>
+    <title>Yasmin Amaral & Breno Fróes  | Matrimônio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind.config.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -18,11 +18,17 @@
             <img src="assets/img/selo-yb.png" width="84" height="84" class="logo-header" alt="Logo">
         </header>
     </div>
-    <section class="w-full header-section">
-    </section>
-    <main class="mx-auto">
-        <img src="assets/img/salao-aquarela.jpeg" width="1024" height="1024" class="salao-aquarela" alt="Salao Aquarela">
-        <section class="w-full second-section content"> 
+    <main>
+        <canvas
+            class="salao-aquarela"
+            width="1024"
+            height="1024"
+            data-src="assets/img/salao-aquarela.jpeg"
+            data-mask="assets/img/cloud-texture.png"
+            aria-label="Salão Aquarela"
+            role="img"
+        ></canvas>
+        <section class="second-section content"> 
             <!-- <img src="assets/img/logo-silhueta-yb.svg" width="200" height="200" class="logo-silhueta" alt="Silhueta"> -->
             <div >
                 <h1>Yasmin Amaral & Breno Fróes</h1>
@@ -32,8 +38,8 @@
             </h2>
             </div>
         </section>
-        <section class="w-full third-section">
-            <div class="container mx-auto content">
+        <section class="third-section">
+            <div class="content">
                 <p class="verse">"O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha.
                     Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor.
                     O amor não se alegra com a injustiça, mas se alegra com a verdade.
@@ -72,10 +78,8 @@
                 </p> -->
             </div>
         </section>
-        <section class="w-full fourth-section">
-            <div class="container mx-auto content">
+        <section class="fourth-section">
                 <h2>Nossa história</h2>
-                
                 <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
                 <div class="carousel-container">
                     <button class="carousel-arrow carousel-prev" aria-label="Anterior">&#10094;</button>
@@ -138,14 +142,29 @@
                         </div>
                     </div>
                     <button class="carousel-arrow carousel-next" aria-label="Próximo">&#10095;</button>
-                </div>
+
             </div>
         </section>
-        <section class="w-full fifth-section">
-            <div class="container mx-auto content">
+        <div class="fifth-section">
+
+        </div>
+        <section class="sixth-section">
+            <div class="content">
+                <h2>Lista de Presentes</h2>
+                <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
+                <p class="gift-text">
+                    Aproveitar esse momento conosco é nosso maior presente, mas caso se sinta a vontade de nos presentear, preparamos uma lista com muito carinho.
+                </p>
+                <a href="https://www.amazon.com.br/hz/wishlist/ls/2WLSYZ2ZCT809?ref_=list_d_wl_lfu_nav_2" target="_blank" rel="noopener noreferrer" class="gift-btn">
+                    Ver lista na Amazon
+                </a>
+            </div>
+        </section>
+        <section class="seventh-section">
+            <div class="content">
                 <h2>Confirme sua presença</h2>
                 <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
-                <p class="rsvp-subtitle">Será uma alegria imensa contar com você neste dia tão especial.</p>
+                <p class="rsvp-subtitle">Será de uma imensa felicidade contar com você neste dia tão marcante.</p>
                 <form id="rsvp-form">
                     <div class="form-group">
                         <label for="name">Nome completo</label>
@@ -170,20 +189,9 @@
                 </form>
             </div>
         </section>
-        <section class="w-full sixth-section">
-            <div class="container mx-auto content">
-                <h2>Lista de Presentes</h2>
-                <img src="assets/img/line.svg" width="300" height="200" class="line-img" alt="Linha">
-                <p class="gift-text">
-                    Aproveitar esse momento conosco é nosso maior presente, mas caso se sinta a vontade de nos presentear, preparamos uma lista com muito carinho.
-                </p>
-                <a href="https://www.amazon.com.br/hz/wishlist/ls/2WLSYZ2ZCT809?ref_=list_d_wl_lfu_nav_2" target="_blank" rel="noopener noreferrer" class="gift-btn">
-                    Ver lista na Amazon
-                </a>
-            </div>
-        </section>
-        <section class="w-full seventh-section">
-            <div class="container mx-auto content">
+
+        <section class="eigth-section">
+            <div class="content">
                 <p class="made-text">
                     Feito com carinho pelo noivo <span class="heart">♥</span> <br>
                     Caso encontre algum problema, por favor, entre em contato com ele. <br>
@@ -193,6 +201,7 @@
         </section>
     </main>
     <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/aquarelle.js"></script>
     <script type="module" src="assets/js/rsvp.js"></script>
 </body>
 </html>

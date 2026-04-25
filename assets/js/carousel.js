@@ -59,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
         autoTimer = setInterval(autoScroll, AUTO_INTERVAL);
     }
 
-    inner.style.left = '0px';
+    function centerInitial() {
+        const outerWidth = container.getBoundingClientRect().width;
+        const innerWidth = inner.getBoundingClientRect().width;
+        if (innerWidth < outerWidth) {
+            inner.style.left = `${(outerWidth - innerWidth) / 2}px`;
+        } else {
+            inner.style.left = '0px';
+        }
+    }
+
+    centerInitial();
     resetAuto();
 });
