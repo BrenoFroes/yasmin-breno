@@ -36,14 +36,52 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+
+    .logo-shine {
+        position: relative;
+        display: inline-block;
+        line-height: 0;
+        isolation: isolate;
+    }
+
+    .logo-shine::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+            115deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.9) 50%,
+            transparent 65%
+        );
+        background-repeat: no-repeat;
+        background-size: 250% 100%;
+        background-position: 200% 0;
+        -webkit-mask: url('../img/selo-yb.png') center / contain no-repeat;
+                mask: url('../img/selo-yb.png') center / contain no-repeat;
+        mix-blend-mode: screen;
+        animation: logo-shine 3.5s ease-in-out infinite;
+        pointer-events: none;
+    }
+
     .logo-header {
         width: 84px;
         height: auto;
+        display: block;
         filter: drop-shadow(0 2px 4px var(--yb-yellow));
     }
-    
+
     path {
         fill: var(--yb-yellow);
+    }
+}
+
+@keyframes logo-shine {
+    0%, 25% {
+        background-position: 200% 0;
+    }
+    75%, 100% {
+        background-position: -100% 0;
     }
 }
 
@@ -107,7 +145,7 @@ main {
         opacity: 1;
     }
 
-    .second-section {
+    .hero-section {
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
@@ -156,7 +194,7 @@ main {
         }
     }
 
-    .third-section {
+    .invitation-section {
         padding: 20px 16px;
         .verse {
             font-style: italic;
@@ -201,7 +239,7 @@ main {
         }
     }
 
-    .fourth-section {
+    .story-section {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -233,6 +271,18 @@ main {
             margin-top: 16px;
             display: flex;
             justify-content: center;
+            cursor: grab;
+            touch-action: pan-y;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .carousel-container.is-dragging {
+            cursor: grabbing;
+        }
+
+        .carousel-container.is-dragging .period {
+            pointer-events: none;
         }
 
         .carousel-inner {
@@ -359,26 +409,12 @@ main {
         }	
     }
 
-    .fifth-section {
+    .countdown-section {
         position: relative;
         isolation: isolate;
         padding: 48px 16px;
         text-align: center;
-        background: url('../img/flower.jpg') center / cover no-repeat;
-
-        .bg-overlay {
-            position: absolute;
-            inset: 0;
-            background-color: var(--yb-white);
-            opacity: 0.7;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        > .content {
-            position: relative;
-            z-index: 1;
-        }
+        background: var(--yb-white);
 
         h2 {
             font-size: 1.4rem;
@@ -462,10 +498,13 @@ main {
         }
     }
 
-    .sixth-section {
+    .gifts-section {
         padding: 40px 16px;
         text-align: center;
-        background-color: var(--yb-brown);
+        background-image: url('../img/background-flower.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
 
         h2 {
             font-size: 1.4rem;
@@ -504,7 +543,7 @@ main {
         }
     }
 
-    .seventh-section {
+    .rsvp-section {
         padding: 40px 16px;
         background-color: var(--yb-white);
 
@@ -647,7 +686,7 @@ main {
     }
 
 
-    .eigth-section {
+    .credits-section {
         padding: 20px 16px;
         text-align: center;
         background-color: var(--yb-brown);
