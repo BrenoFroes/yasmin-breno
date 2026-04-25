@@ -48,7 +48,8 @@ header {
 }
 
 .content {
-    max-width: 1024px;
+    width: 100%;
+        max-width: 1024px;
     margin: 0 auto;
     padding: 0 20px;
     @media (min-width: 960px) {
@@ -93,6 +94,13 @@ main {
         margin-bottom: 20px;
         opacity: 0;
         transition: opacity 0.4s ease;
+
+        @media (min-width: 768px) {
+            width: auto;
+            height: 70vh;
+            aspect-ratio: auto;
+            margin: 0 auto;
+        }
     }
 
     .salao-aquarela.is-ready {
@@ -106,6 +114,8 @@ main {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding: 20px 0;
+
         h1 {
             text-align: center;
             margin-bottom: 0;
@@ -121,7 +131,7 @@ main {
 
         h2 {
             font-size: 1rem;
-            margin: 0 auto 20px;
+            margin: 0 auto;
             text-align: center;
             color: var(--yb-green);
         }
@@ -129,6 +139,10 @@ main {
         p {
             font-size: 1.5rem;
             font-weight: 300;
+            background-image:
+                linear-gradient(rgba(248, 245, 240, 0.65), rgba(248, 245, 240, 0.65)),
+                url('../img/flower.jpg');
+    
             color: var(--yb-brown);
             text-align: center;
             margin-bottom: 20px;
@@ -346,9 +360,25 @@ main {
     }
 
     .fifth-section {
+        position: relative;
+        isolation: isolate;
         padding: 48px 16px;
         text-align: center;
-        background-color: var(--yb-white);
+        background: url('../img/flower.jpg') center / cover no-repeat;
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: var(--yb-white);
+            opacity: 0.7;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        > .content {
+            position: relative;
+            z-index: 1;
+        }
 
         h2 {
             font-size: 1.4rem;
@@ -357,12 +387,22 @@ main {
             margin-bottom: 0;
         }
 
+        .line-img {
+            max-width: 100px;
+        }
+        
+
         .countdown-subtitle {
             font-size: 1rem;
             font-style: italic;
             color: var(--yb-brown);
-            margin: 0 auto 28px;
+            margin: 0 auto 28px;        
             max-width: 480px;
+            
+            .line-img {
+                filter: brightness(0) invert(1);
+                max-width: 100px;
+            }
         }
 
         .countdown {
@@ -383,7 +423,7 @@ main {
             background-color: var(--yb-brown);
             color: var(--yb-yellow);
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(62, 44, 35, 0.15);
+            box-shadow: 0 2px 8px rgba(62, 44, 35, 0.4);
         }
 
         .countdown-value {
@@ -425,17 +465,22 @@ main {
     .sixth-section {
         padding: 40px 16px;
         text-align: center;
+        background-color: var(--yb-brown);
 
         h2 {
             font-size: 1.4rem;
             font-weight: 600;
-            color: var(--yb-brown);
+            color: var(--yb-white);
             margin-bottom: 0;
         }
 
+        .line-img {
+            filter: brightness(0) invert(1);
+            max-width: 100px;
+        }
         .gift-text {
             font-size: 1rem;
-            color: var(--yb-brown);
+            color: var(--yb-white);
             max-width: 480px;
             margin: 0 auto 24px;
             line-height: 1.4;
@@ -448,8 +493,8 @@ main {
             font-weight: 600;
             padding: 12px 32px;
             border-radius: 6px;
-            background-color: var(--yb-brown);
-            color: var(--yb-yellow);
+            background-color: var(--yb-yellow);
+            color: var(--yb-brown);
             text-decoration: none;
             transition: opacity 0.2s ease;
         }
@@ -461,24 +506,23 @@ main {
 
     .seventh-section {
         padding: 40px 16px;
-        background-color: var(--yb-brown);
+        background-color: var(--yb-white);
 
         h2 {
             font-size: 1.4rem;
             font-weight: 600;
-            color: var(--yb-yellow);
+            color: var(--yb-brown);
             text-align: center;
             margin-bottom: 0;
         }
 
         .line-img {
-            filter: brightness(2);
             max-width: 100px;
         }
 
         .rsvp-subtitle {
             font-size: 1rem;
-            color: var(--yb-white);
+            color: var(--yb-brown);
             text-align: center;
             margin-bottom: 24px;
         }
@@ -499,27 +543,28 @@ main {
         label {
             font-size: 0.9rem;
             font-weight: 500;
-            color: var(--yb-yellow);
+            color: var(--yb-brown);
         }
 
         input, select, textarea {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
             padding: 10px 12px;
-            border: 1px solid rgba(242, 217, 140, 0.3);
+            border: 1px solid rgba(62, 44, 35, 0.25);
             border-radius: 6px;
-            background-color: rgba(248, 245, 240, 0.08);
-            color: var(--yb-white);
+            background-color: #fff;
+            color: var(--yb-brown);
             outline: none;
-            transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         input::placeholder, textarea::placeholder {
-            color: rgba(248, 245, 240, 0.4);
+            color: rgba(62, 44, 35, 0.45);
         }
 
         input:focus, select:focus, textarea:focus {
-            border-color: var(--yb-yellow);
+            border-color: var(--yb-brown);
+            box-shadow: 0 0 0 2px rgba(242, 217, 140, 0.45);
         }
 
         select {
@@ -527,16 +572,17 @@ main {
         }
 
         select option {
-            background-color: var(--yb-brown);
-            color: var(--yb-white);
+            background-color: var(--yb-white);
+            color: var(--yb-brown);
         }
 
         .guests-checkboxes {
             max-height: 160px;
             overflow-y: auto;
-            border: 1px solid rgba(242, 217, 140, 0.3);
+            border: 1px solid rgba(62, 44, 35, 0.25);
             border-radius: 6px;
             padding: 8px 12px;
+            background-color: #fff;
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -547,12 +593,12 @@ main {
             align-items: center;
             gap: 8px;
             font-size: 0.95rem;
-            color: var(--yb-white);
+            color: var(--yb-brown);
             cursor: pointer;
         }
 
         .guest-checkbox input[type="checkbox"] {
-            accent-color: var(--yb-yellow);
+            accent-color: var(--yb-brown);
             width: 16px;
             height: 16px;
             cursor: pointer;
@@ -570,8 +616,8 @@ main {
             padding: 12px;
             border: none;
             border-radius: 6px;
-            background-color: var(--yb-yellow);
-            color: var(--yb-brown);
+            background-color: var(--yb-brown);
+            color: var(--yb-yellow);
             cursor: pointer;
             transition: opacity 0.2s ease;
         }
