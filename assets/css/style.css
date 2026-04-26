@@ -127,7 +127,7 @@ main {
     .salao-aquarela {
         display: block;
         width: 100%;
-        height: 85vh;
+        height: 82vh;
         aspect-ratio: 1 / 1;
         margin-bottom: 20px;
         opacity: 0;
@@ -152,7 +152,7 @@ main {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 20px 0;
+        padding: 32px 16px 0;
 
         h1 {
             text-align: center;
@@ -195,7 +195,7 @@ main {
     }
 
     .invitation-section {
-        padding: 20px 16px;
+        padding: 32px 16px;
         .verse {
             font-style: italic;
             font-size: 1rem;
@@ -245,7 +245,7 @@ main {
         align-items: flex-start;
         justify-content: center;
         background-color: var(--yb-green);
-        padding: 20px 0;
+        padding: 32px 16px;
         width: 100%;
 
         .line-img {
@@ -267,29 +267,25 @@ main {
             position: relative;
             width: 100%;
             height: 300px;
-            overflow: hidden;
             margin-top: 16px;
-            display: flex;
-            justify-content: center;
-            cursor: grab;
-            touch-action: pan-y;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        .carousel-container.is-dragging {
-            cursor: grabbing;
-        }
-
-        .carousel-container.is-dragging .period {
-            pointer-events: none;
         }
 
         .carousel-inner {
             display: flex;
-            gap: 0px;
-            position: absolute;
-            top: 0;
+            gap: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .carousel-inner::-webkit-scrollbar {
+            display: none;
         }
 
         .carousel-arrow {
@@ -333,9 +329,10 @@ main {
             align-items: flex-start;
             justify-content: flex-start;
             gap: 12px;
-            /* background: url('../img/paper.jpg') no-repeat center center; */
             overflow-y: auto;
             flex-shrink: 0;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
 
             .period-img-wrapper {
                 position: relative;
@@ -412,7 +409,7 @@ main {
     .countdown-section {
         position: relative;
         isolation: isolate;
-        padding: 48px 16px;
+        padding: 32px 16px;
         text-align: center;
         background: var(--yb-white);
 
@@ -499,7 +496,7 @@ main {
     }
 
     .gifts-section {
-        padding: 40px 16px;
+        padding: 32px 16px;
         text-align: center;
         background-image: url('../img/background-flower.png');
         background-size: cover;
@@ -544,7 +541,7 @@ main {
     }
 
     .rsvp-section {
-        padding: 40px 16px;
+        padding: 32px 16px;
         background-color: var(--yb-white);
 
         h2 {
@@ -687,12 +684,12 @@ main {
 
 
     .credits-section {
-        padding: 20px 16px;
+        padding: 32px 16px;
         text-align: center;
         background-color: var(--yb-brown);
 
         .made-text {
-            font-size: 1rem;
+            font-size: 0.8rem;
             color: var(--yb-white);
             a {
                 text-decoration: underline;

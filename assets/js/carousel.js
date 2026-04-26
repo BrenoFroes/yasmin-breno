@@ -2,57 +2,67 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.carousel-container');
     if (!container) return;
 
-    const inner = document.querySelector('.carousel-inner');
+    const track = container.querySelector('.carousel-inner');
     const prevBtn = container.querySelector('.carousel-prev');
     const nextBtn = container.querySelector('.carousel-next');
+    const originals = Array.from(track.querySelectorAll('.period'));
+    if (!track || originals.length === 0) return;
 
+    const N = originals.length;
     const AUTO_INTERVAL = 6000;
-    const ARROW_SCROLL = 296;
-    const DRAG_THRESHOLD = 6;
+
     let autoTimer = null;
+    let userInteracting = false;
+    let isJumping = false;
 
-    function boundItems() {
-        const outer = container.getBoundingClientRect();
-        const innerRect = inner.getBoundingClientRect();
-        const currentLeft = parseInt(inner.style.left) || 0;
+    originals.forEach((p) => {
+        const clone = p.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.dataset.clone = 'pre';
+        track.insertBefore(clone, originals[0]);
+    });
+    originals.forEach((p) => {
+        const clone = p.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.dataset.clone = 'post';
+        track.appendChild(clone);
+    });
 
-        if (currentLeft > 0) {
-            inner.style.left = '0px';
-        }
+    const allCards = () => track.querySelectorAll('.period');
 
-        if (innerRect.right < outer.right) {
-            inner.style.left = `-${innerRect.width - outer.width}px`;
-        }
+    function step() {
+        return originals[0].getBoundingClientRect().width;
     }
 
-    function scrollBy(amount) {
-        const currentLeft = parseInt(inner.style.left) || 0;
-        inner.style.transition = 'left 0.4s ease';
-        inner.style.left = `${currentLeft + amount}px`;
-        boundItems();
-        setTimeout(() => {
-            inner.style.transition = '';
-            boundItems();
-        }, 400);
+    function snappedIndex() {
+        const center = track.scrollLeft + track.clientWidth / 2;
+        const cards = allCards();
+        let nearestIdx = -1;
+        let minDist = Infinity;
+        cards.forEach((c, i) => {
+            const cardCenter = c.offsetLeft + c.offsetWidth / 2;
+            const dist = Math.abs(cardCenter - center);
+            if (dist < minDist) {
+                minDist = dist;
+                nearestIdx = i;
+            }
+        });
+        return nearestIdx;
+    }
+
+    function scrollToCard(card, smooth) {
+        const target = card.offsetLeft + card.offsetWidth / 2 - track.clientWidth / 2;
+        track.scrollTo({ left: target, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    function nudge(direction) {
+        track.scrollBy({ left: direction * step(), behavior: 'smooth' });
         resetAuto();
     }
 
-    prevBtn.addEventListener('click', () => scrollBy(ARROW_SCROLL));
-    nextBtn.addEventListener('click', () => scrollBy(-ARROW_SCROLL));
-
     function autoScroll() {
-        const currentLeft = parseInt(inner.style.left) || 0;
-        const outerWidth = container.getBoundingClientRect().width;
-        const innerWidth = inner.getBoundingClientRect().width;
-        const maxScroll = -(innerWidth - outerWidth);
-
-        if (currentLeft <= maxScroll + 10) {
-            inner.style.transition = 'left 0.6s ease';
-            inner.style.left = '0px';
-            setTimeout(() => { inner.style.transition = ''; }, 600);
-        } else {
-            scrollBy(-ARROW_SCROLL);
-        }
+        if (userInteracting) return;
+        track.scrollBy({ left: step(), behavior: 'smooth' });
     }
 
     function resetAuto() {
@@ -60,90 +70,53 @@ document.addEventListener('DOMContentLoaded', () => {
         autoTimer = setInterval(autoScroll, AUTO_INTERVAL);
     }
 
-    function centerInitial() {
-        const outerWidth = container.getBoundingClientRect().width;
-        const innerWidth = inner.getBoundingClientRect().width;
-        if (innerWidth < outerWidth) {
-            inner.style.left = `${(outerWidth - innerWidth) / 2}px`;
-        } else {
-            inner.style.left = '0px';
+    function rebalance() {
+        if (isJumping) return;
+        const idx = snappedIndex();
+        if (idx === -1) return;
+
+        const cards = allCards();
+        if (idx < N) {
+            isJumping = true;
+            scrollToCard(cards[idx + N], false);
+            requestAnimationFrame(() => { isJumping = false; });
+        } else if (idx >= 2 * N) {
+            isJumping = true;
+            scrollToCard(cards[idx - N], false);
+            requestAnimationFrame(() => { isJumping = false; });
         }
     }
 
-    let isDown = false;
-    let didDrag = false;
-    let startX = 0;
-    let startLeft = 0;
-    let activePointerId = null;
-
-    function onPointerDown(e) {
-        if (e.button !== undefined && e.button !== 0) return;
-        if (e.target.closest('.carousel-arrow')) return;
-
-        isDown = true;
-        didDrag = false;
-        startX = e.clientX;
-        startLeft = parseInt(inner.style.left) || 0;
-        activePointerId = e.pointerId;
-
-        inner.style.transition = '';
-        clearInterval(autoTimer);
-
-        try { container.setPointerCapture(e.pointerId); } catch (_) {}
+    if ('onscrollend' in window) {
+        track.addEventListener('scrollend', rebalance);
+    } else {
+        let scrollDebounce = null;
+        track.addEventListener('scroll', () => {
+            clearTimeout(scrollDebounce);
+            scrollDebounce = setTimeout(rebalance, 150);
+        });
     }
 
-    function onPointerMove(e) {
-        if (!isDown || e.pointerId !== activePointerId) return;
-        const dx = e.clientX - startX;
+    prevBtn.addEventListener('click', () => nudge(-1));
+    nextBtn.addEventListener('click', () => nudge(1));
 
-        if (!didDrag && Math.abs(dx) >= DRAG_THRESHOLD) {
-            didDrag = true;
-            container.classList.add('is-dragging');
-        }
-
-        if (didDrag) {
-            inner.style.left = `${startLeft + dx}px`;
-            e.preventDefault();
-        }
-    }
-
-    function onPointerUp(e) {
-        if (!isDown) return;
-        if (activePointerId !== null && e.pointerId !== activePointerId) return;
-
-        const wasDrag = didDrag;
-        isDown = false;
-        didDrag = false;
-        activePointerId = null;
-
-        try { container.releasePointerCapture(e.pointerId); } catch (_) {}
-
-        if (wasDrag) {
-            inner.style.transition = 'left 0.3s ease-out';
-            boundItems();
-            setTimeout(() => { inner.style.transition = ''; }, 300);
-
-            const swallowClick = (ev) => {
-                ev.stopPropagation();
-                ev.preventDefault();
-            };
-            container.addEventListener('click', swallowClick, { capture: true, once: true });
-
-            setTimeout(() => container.classList.remove('is-dragging'), 50);
-        }
-
+    track.addEventListener('pointerdown', () => { userInteracting = true; });
+    track.addEventListener('pointerup', () => {
+        userInteracting = false;
         resetAuto();
-    }
-
-    container.addEventListener('pointerdown', onPointerDown);
-    container.addEventListener('pointermove', onPointerMove);
-    container.addEventListener('pointerup', onPointerUp);
-    container.addEventListener('pointercancel', onPointerUp);
-
-    container.querySelectorAll('img').forEach((img) => {
-        img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+    track.addEventListener('pointercancel', () => {
+        userInteracting = false;
+        resetAuto();
+    });
+    track.addEventListener('mouseenter', () => { userInteracting = true; });
+    track.addEventListener('mouseleave', () => {
+        userInteracting = false;
+        resetAuto();
     });
 
-    centerInitial();
-    resetAuto();
+    requestAnimationFrame(() => {
+        scrollToCard(originals[0], false);
+        resetAuto();
+    });
 });
