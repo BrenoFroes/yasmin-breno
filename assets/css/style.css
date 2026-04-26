@@ -235,6 +235,19 @@ main {
                 align-items: center;
                 justify-content: flex-start;
                 gap: 12px;
+                margin-bottom: 12px;
+                p, a {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: var(--yb-brown);
+                    margin-bottom: 0;
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 12px;
+                }
             }
         }
     }
@@ -514,6 +527,7 @@ main {
             filter: brightness(0) invert(1);
             max-width: 100px;
         }
+
         .gift-text {
             font-size: 1rem;
             color: var(--yb-white);
@@ -528,17 +542,104 @@ main {
             font-size: 1.1rem;
             font-weight: 600;
             padding: 12px 32px;
+            width: 100%;
+            max-width: 240px;
+            border: none;
             border-radius: 6px;
             background-color: var(--yb-yellow);
             color: var(--yb-brown);
             text-decoration: none;
+            cursor: pointer;
             transition: opacity 0.2s ease;
+            margin: 0 auto 16px;
+        }
+
+        .gift-btn + .gift-btn {
+            margin-top: 12px;
         }
 
         .gift-btn:hover {
             opacity: 0.85;
         }
+
+        .gift-btn-separator {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--yb-white);
+            margin: 0 12px;
+        }
+
+        .gift-btn-text {
+            font-size: 1rem;
+            color: var(--yb-white);
+            margin-top: 12px;
+            font-weight: 600;
+        }
+
+        .pix-dialog {
+            position: fixed;
+            inset: 0;
+            margin: auto;
+            width: min(360px, 90vw);
+            max-height: 90vh;
+            padding: 32px 24px 24px;
+            border: none;
+            border-radius: 12px;
+            background-color: var(--yb-white);
+            color: var(--yb-brown);
+            text-align: center;
+            box-shadow: 0 12px 32px rgba(62, 44, 35, 0.4);
+            font-family: 'Cormorant Garamond', serif;
+    
+            &::backdrop {
+                background-color: rgba(62, 44, 35, 0.6);
+                backdrop-filter: blur(2px);
+            }
+    
+            .pix-dialog-close {
+                position: absolute;
+                top: 4px;
+                right: 8px;
+                background: none;
+                border: none;
+                font-size: 1.8rem;
+                line-height: 1;
+                color: var(--yb-brown);
+                cursor: pointer;
+                padding: 4px 10px;
+                border-radius: 4px;
+                transition: background-color 0.2s ease;
+            }
+    
+            .pix-dialog-close:hover {
+                background-color: rgba(62, 44, 35, 0.08);
+            }
+    
+            h3 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: var(--yb-brown);
+                margin-bottom: 4px;
+            }
+    
+            .pix-dialog-subtitle {
+                font-size: 0.95rem;
+                color: var(--yb-brown);
+                margin-bottom: 16px;
+            }
+    
+            .pix-qr {
+                display: block;
+                width: 100%;
+                max-width: 260px;
+                height: auto;
+                margin: 0 auto;
+                border-radius: 8px;
+                background-color: var(--yb-white);
+            }
+        }
     }
+
 
     .rsvp-section {
         padding: 32px 16px;

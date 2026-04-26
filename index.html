@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasmin Amaral & Breno Fróes  | Matrimônio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind.config.js"></script>
+    <meta name="theme-color" content="#3e2c23">
+    <meta name="description" content="Casamento de Yasmin Amaral & Breno Fróes — 21 de novembro de 2026">
+    <title>Y&B | Matrimônio</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo-silhueta-yb.svg">
+    <link rel="icon" type="image/x-icon" href="assets/img/selo-yb.ico">
+    <link rel="shortcut icon" href="assets/img/selo-yb.ico">
+    <link rel="apple-touch-icon" href="assets/img/selo-yb.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,17 +62,22 @@
                     <div class="invitation">
                         <p class="invitation-text">
                             Convidam com imensa felicidade para a celebração da união matrimonial de <strong>Yasmin Amaral & Breno Fróes</strong>.<br>
-                            Será uma honra contar com vossa presença para celebrar este dia sob a bênção do Senhor. Estendemos este convite com especial carinho para que compartilhe este momento conosco.<br>
+                            Será uma honra contar com sua presença para celebrar este dia sob a bênção do Senhor. Estendemos este convite com especial carinho para que compartilhe este momento conosco.<br>
                         </p>
                         <p class="invitation-info">
                             <div class="info-item">
-                                <img src="assets/img/clock.svg" width="24" height="24" class="relogio-img" alt="Relogio"> 21 de novembro de 2026, às 16h
+                                <img src="assets/img/relogio.png" width="24" height="24" class="relogio-img" alt="Relogio"> 
+                                <p>21 de novembro de 2026, às 16h</p>
                             </div>
                             <div class="info-item">
-                                <img src="assets/img/gps.png" width="24" height="24" class="location-img" alt="Local"> Espaço Garden Estr. Caetano Monteiro, 4036 - Pendotiba, Niterói - RJ
+                                <a href="https://share.google/EoIc9KoYlKEgJvNv7" target="_blank" rel="noopener noreferrer">
+                                    <img src="assets/img/pin.png" width="24" height="24" class="location-img" alt="Local"> 
+                                    <p>Espaço Garden Estr. Caetano Monteiro, 4036 - Pendotiba, Niterói - RJ</p>
+                                </a>
                             </div>
                             <div class="info-item">
-                                <img src="assets/img/suit.png" width="24" height="24" class="suit-img" alt="Traje"> Esporte Fino
+                                <img src="assets/img/suit.png" width="24" height="24" class="suit-img" alt="Traje"> 
+                                <p>Esporte Fino</p>
                             </div>
                         </p>
                     </div>
@@ -178,10 +188,25 @@
                 <p class="gift-text">
                     Aproveitar esse momento conosco é nosso maior presente, mas caso se sinta a vontade de nos presentear, preparamos uma lista com muito carinho.
                 </p>
-                <a href="https://www.amazon.com.br/hz/wishlist/ls/2WLSYZ2ZCT809?ref_=list_d_wl_lfu_nav_2" target="_blank" rel="noopener noreferrer" class="gift-btn">
-                    Ver lista na Amazon
-                </a>
+                <div class="gift-btn-container">
+                    <a href="https://www.finalfeliz.de/yasmin-amaral-breno-froes" target="_blank" rel="noopener noreferrer" class="gift-btn">
+                        Ver lista na Magalu
+                    </a><br>
+                    <button class="gift-btn" id="pix-btn" type="button">
+                        Enviar PIX
+                    </button>
+                </div>
+                <span class="gift-btn-text">
+                    Obs: caso opte por enviar eletrodomésticos, certifique-se de que seja 110/127v ou bivolt.
+                </span>
             </div>
+            <dialog id="pix-dialog" class="pix-dialog" aria-labelledby="pix-dialog-title">
+                <button type="button" class="pix-dialog-close" aria-label="Fechar">&times;</button>
+                <h3 id="pix-dialog-title">Enviar PIX</h3>
+                <p class="pix-dialog-subtitle">Aponte a câmera do seu banco para o QR code abaixo.</p>
+                <img src="assets/img/qrcode-pix.png" alt="QR Code PIX" class="pix-qr" width="260" height="260">
+                <p><strong>Chave PIX:</strong> breno_alves@msn.com</p>
+            </dialog>
         </section>
         <section class="rsvp-section">
             <div class="content">
@@ -229,6 +254,7 @@
     <script src="assets/js/carousel.js"></script>
     <script src="assets/js/aquarelle.js"></script>
     <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/pix.js"></script>
     <script type="module" src="assets/js/rsvp.js"></script>
 </body>
 </html>
