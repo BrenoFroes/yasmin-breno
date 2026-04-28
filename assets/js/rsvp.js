@@ -39,6 +39,7 @@ async function loadGuests() {
             label.appendChild(document.createTextNode(name));
             guestsContainer.appendChild(label);
         });
+        nameSelect.selectedIndex = 0;
     } catch (error) {
         console.error('Erro ao carregar lista de convidados:', error);
     }

@@ -9,7 +9,7 @@
     --yb-yellow: rgb(242 217 140);
     --yb-brown: rgb(62 44 35);
     --yb-white: rgb(248 245 240);
-    --yb-green: rgb(138 153 79);
+    --yb-green: rgb(115 126 69);
 }
 
 body {
@@ -87,9 +87,13 @@ header {
 
 .content {
     width: 100%;
-        max-width: 1024px;
+    max-width: 1024px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     @media (min-width: 960px) {
         max-width: 768px;
     }
@@ -264,6 +268,8 @@ main {
         .line-img {
             filter: brightness(0) invert(1);
             max-width: 100px;
+            margin-left: auto;
+            margin-right: auto;
         }
         h2 {
             font-size: 1.2rem;
@@ -424,7 +430,6 @@ main {
         isolation: isolate;
         padding: 32px 16px;
         text-align: center;
-        background: var(--yb-white);
 
         h2 {
             font-size: 1.4rem;
@@ -552,6 +557,7 @@ main {
             cursor: pointer;
             transition: opacity 0.2s ease;
             margin: 0 auto 16px;
+            box-shadow: 0 2px 8px rgba(242, 217, 140, 0.4);
         }
 
         .gift-btn + .gift-btn {
@@ -655,6 +661,8 @@ main {
 
         .line-img {
             max-width: 100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .rsvp-subtitle {
@@ -757,6 +765,7 @@ main {
             color: var(--yb-yellow);
             cursor: pointer;
             transition: opacity 0.2s ease;
+            box-shadow: 0 2px 8px rgba(62, 44, 35, 0.4);
         }
 
         .rsvp-btn:hover {
@@ -794,6 +803,7 @@ main {
             color: var(--yb-white);
             a {
                 text-decoration: underline;
+                color: var(--yb-white);
             }
         }
     }
