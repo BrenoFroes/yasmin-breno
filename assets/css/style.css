@@ -131,7 +131,7 @@ main {
     .salao-aquarela {
         display: block;
         width: 100%;
-        height: 78vh;
+        height: 75vh;
         aspect-ratio: 1 / 1;
         margin-bottom: 20px;
         opacity: 0;
