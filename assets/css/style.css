@@ -65,7 +65,7 @@ header {
     }
 
     .logo-header {
-        width: 84px;
+        width: 70px;
         height: auto;
         display: block;
         filter: drop-shadow(0 2px 4px var(--yb-yellow));
@@ -823,4 +823,69 @@ main {
     100% {
         background-position: 1000px;
     }
+}
+
+.single-photo-section {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    background-color: var(--yb-brown);
+}
+
+.single-photo-section .content {
+    padding: 0;
+}
+
+.single-photo-section--green {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    background-color: var(--yb-green);
+}
+
+.single-photo-section .photo-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.single-photo-section .photo-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+}
+
+.single-photo-section .photo-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(62,44,35,0.38); /* overlay marrom */
+    transition: background .3s ease, opacity .3s ease;
+    pointer-events: none;
+}
+.single-photo-section--green .photo-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(115, 126, 69, 0.28); /* overlay marrom */
+    transition: background .3s ease, opacity .3s ease;
+    pointer-events: none;
+}
+.single-photo-section .photo-card:hover img {
+    transform: scale(1.03);
+}
+.single-photo-section .photo-card:hover .overlay {
+    background: rgba(62,44,35,0.48);
+}
+.single-photo-section--green .photo-card:hover .overlay {
+    background: rgba(115, 126, 69,  0.48);
 }
