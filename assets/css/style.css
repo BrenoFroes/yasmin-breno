@@ -65,7 +65,7 @@ header {
     }
 
     .logo-header {
-        width: 70px;
+        width: 80px;
         height: auto;
         display: block;
         filter: drop-shadow(0 2px 4px var(--yb-yellow));
