@@ -15,7 +15,7 @@
     let assetsLoaded = 0;
 
     function draw() {
-        speed += 24;
+        speed += 20;
 
         const w = 70 + speed;
         const h = 40 + speed;
@@ -28,7 +28,7 @@
         ctx.globalCompositeOperation = 'source-in';
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        const maxDim = Math.max(canvas.width, canvas.height) * 1.6;
+        const maxDim = Math.max(canvas.width, canvas.height) * 1.1;
         if (w < maxDim) {
             rafId = window.requestAnimationFrame(draw);
         } else {
