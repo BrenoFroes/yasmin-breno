@@ -66,7 +66,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
         await addDoc(collection(db, 'rsvp'), data);
-        feedback.textContent = 'Agradecemos de coração a retribuição de carinho. Você, de fato, é alguém muito especial para nós e por isso, foi convidado para um dos dias mais importantes de nossas vidas. <br>Cada presença foi escolhida com muito amor e estamos felizes que faz parte dessa lista, não só por isso, mas também por compartilhar um pouco da nossa história com você. Nos vemos lá ♥';
+        feedback.textContent = 'Agradecemos de coração a retribuição de carinho. Você, de fato, é alguém muito especial para nós. Cada presença foi escolhida com muito amor e estamos felizes que faz parte dessa lista, não só por isso, mas também por compartilhar um pouco da nossa história com você. Nos vemos lá ♥';
         feedback.classList.add('success');
         form.reset();
     } catch (error) {
