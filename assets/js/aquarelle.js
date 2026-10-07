@@ -28,7 +28,7 @@
         ctx.globalCompositeOperation = 'source-in';
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        const maxDim = Math.max(canvas.width, canvas.height) * 2;
+        const maxDim = Math.max(canvas.width, canvas.height) * 1.7;
         if (w < maxDim) {
             rafId = window.requestAnimationFrame(draw);
         } else {
